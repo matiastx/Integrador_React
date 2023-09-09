@@ -4,12 +4,16 @@ import App from './App.jsx'
 import './index.css'
 import { GlobalStyle } from './assets/Styles/GlobalStyle.js'
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <GlobalStyle />
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+
+        <GlobalStyle />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+
   </React.StrictMode>,
 )
