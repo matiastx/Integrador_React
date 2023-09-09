@@ -1,8 +1,8 @@
-import { ProductsData } from "../../Data/ProductsData";
+import { ProductsData } from "../../assets/Data/ProductsData";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    products: ProductsData
+    products: ProductsData,
     totalproducts: ProductsData.length
 }
 
@@ -16,5 +16,8 @@ export const productsSlice = createSlice({
     }
 })
 
-export const { getProducts } = productsSlice.actions;
+export const { 
+    getProducts 
+} = productsSlice.actions;
+
 export default productsSlice.reducer;

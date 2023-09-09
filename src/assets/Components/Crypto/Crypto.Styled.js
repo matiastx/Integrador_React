@@ -1,5 +1,48 @@
 import styled from "styled-components";
 
+export const CategoriesCardsContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 25px;
+`
+export const CategoriesCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    border-radius: 30px;
+    background-color: var(--bgprimario);
+    border: 2px solid var(--Celeste);
+    padding: 10px 10px;
+    gap: 5px;
+    transition: all ease-in-out 0.3s;
+
+
+    & h3 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--Celeste);
+        width: 80px;
+    }
+
+    & img {
+        display: block;
+        margin-top: -30px;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        border: 2px solid var(--Celeste);
+
+    }
+`
+
+
 export const CryptoContainer = styled.section`
     display: flex;
     flex-direction: column;
@@ -14,7 +57,7 @@ export const CryptoContainer = styled.section`
     width: 100%;
     box-shadow: 0px 3px 10px 0px var(--Gris2);
     -webkit-box-shadow: 0px 3px 10px 0px var(--Gris2);
-    gap: 35px;
+    gap: 20px;
 
     & h2 {
         color: var(--Blanco);
@@ -22,7 +65,13 @@ export const CryptoContainer = styled.section`
         font-size: 40px;
         font-weight: 700;
     }
-`
+
+    & h4 {
+        font-size: 25px;
+        display: flex;
+        color: var(--bgprimario);
+    }
+    `
 
 export const CardsContainer = styled.div`
     display: flex;
@@ -30,7 +79,7 @@ export const CardsContainer = styled.div`
     width: 100%;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
 `
 
 export const CryptoCardContainer = styled.div`
@@ -48,6 +97,7 @@ export const CryptoCardContainer = styled.div`
     & img {
         height: 75px;
         margin-left: 15px;
+        border-radius: 15%;
     }
 `
 

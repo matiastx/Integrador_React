@@ -1,10 +1,13 @@
 import React from 'react'
 import { CryptoCardBottom, CryptoCardBtnContainer, CryptoCardContainer, CryptoCardTitle, CryptoCardTop } from './Crypto.Styled'
 import { CryptoButton } from '../UX/Button/Button'
+import { PrecioDolar } from '../../../Utils/constantes'
+import { formatPrice, formatPriceUSD } from '../../../Utils/FormatPrice'
 
 
-const CryptoCard = ({title, denom, histryMax, price, img}) => {
-  return (
+const CryptoCard = ({title, denom, histryMax, price, img, Rank}) => {
+  const maxprice = formatPriceUSD(histryMax)
+    return (
     <CryptoCardContainer>
       <CryptoCardTop>
         <img src={img} alt="" />
@@ -15,10 +18,10 @@ const CryptoCard = ({title, denom, histryMax, price, img}) => {
       </CryptoCardTop>
       <CryptoCardBottom>
         <h2>Max Historico</h2>
-        <p>U$D {histryMax}</p>
+        <p>{isNaN(histryMax) ? histryMax : maxprice}</p>
         <h2>Valor Actual</h2>
-        <p>U$D {price}</p>
-        <p>$ {price * 550}</p>
+        <p>{formatPriceUSD(price)}</p>
+        <p>{formatPrice(price * PrecioDolar)}</p>
       
       </CryptoCardBottom>
       <CryptoCardBtnContainer>
