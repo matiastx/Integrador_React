@@ -90,8 +90,6 @@ export const LinksContainer = styled.ul`
     
     transition: all 0.5s ease-in-out;
     }
-    
-    
 `
 
 export const MenuLinksContainer = styled.ul`
