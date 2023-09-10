@@ -16,18 +16,18 @@ export const CategoriesCard = styled.div`
     height: 150px;
     width: 150px;
     border-radius: 30px;
-    background-color: var(--bgprimario);
+    background-color: ${({selected})=> (selected ? "var(--Gris2)" : "var(--bgprimario)")};
     border: 2px solid var(--Celeste);
     padding: 10px 10px;
     gap: 5px;
     transition: all ease-in-out 0.3s;
-
+    box-shadow: 2px 5px 10px 0px var(--AzulOscuro);
 
     & h3 {
         text-align: center;
         font-size: 20px;
         font-weight: 800;
-        color: var(--Celeste);
+        color: ${({selected})=> (selected ? "var(--VerdeAgua)" : "var(--Celeste)")};
         width: 80px;
     }
 

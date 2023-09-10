@@ -3,21 +3,20 @@ import { addItemToCart, removeItemFromCart } from "./cartFunctions";
 
 const INITIAL_STATE = {
     cartItems: [],
-    hidden: true
+    hidden: true, 
 }
 
 const cartSlice = createSlice({
     name: "cart",
     initialState: INITIAL_STATE,
     reducers: {
-
         toggleCartHidden: (state) => {
             state.hidden = !state.hidden
         },
         addToCart: (state, action) => {
             return {
                 ...state,
-                cartItems: addItemToCart(state.cartItems,action.payload ),
+                cartItems: addItemToCart(state.cartItems,action.payload),
             }
         },
         removeFromCart: (state, action) => {
@@ -26,13 +25,12 @@ const cartSlice = createSlice({
                 cartItems: removeItemFromCart(state.cartItems, action.payload),
             }
         },
-        clearItemFromCart: (state) => {
+        clearCart: (state) => {
             return {
                 ...state,
                 cartItems: [],
             }
         }
-        
     }
 })
 
@@ -40,7 +38,7 @@ export const {
     toggleCartHidden,
     addToCart,
     removeFromCart,
-    clearItemFromCart,
+    clearCart,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

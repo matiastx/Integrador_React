@@ -5,6 +5,7 @@ import Benefis from "../../Components/Benefits/Benefis";
 import Crypto from "../../Components/Crypto/Crypto";
 
 
+
 const Home = () => {
   return (
     <HomeWrapper>

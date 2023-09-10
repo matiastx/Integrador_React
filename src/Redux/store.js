@@ -6,12 +6,13 @@ import storage from "redux-persist/lib/storage"
 import productsReducer from './products/productsSlice';
 import categoriesReducer from "./categories/categoriesSlice";
 import cartReducer from "./cart/cartSlice";
-
+import modalReducer from "./modal/modalSlice";
 
 const reducers = combineReducers({
     products: productsReducer,
     categories: categoriesReducer,
     cart: cartReducer,
+    modal: modalReducer,
 })
 
 const persistConfig = {

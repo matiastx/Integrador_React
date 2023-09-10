@@ -98,6 +98,15 @@ export const MenuLinksContainer = styled.ul`
     gap: 15px;
 `
 
+export const MenuLinkA = styled.a`
+font-size: 20px;
+cursor: pointer;
+color: var(--Blanco);
+    @media (max-width: 600px) {
+        display: none;
+    }
+`
+
 export const NavLinksLiStyled = styled.li`
     position: relative;
     padding: 0;
@@ -137,6 +146,13 @@ export const NavLinksLiStyled = styled.li`
     }
 `
 
+export const UserLinksLiStyled = styled(NavLinksLiStyled)`
+    display: none;
+    @media (max-width: 400px) {
+        display: flex;
+    }
+`
+
 export const NavLinkStyled = styled.a`
     color: var(--Blanco);
     font-size: 30px;
@@ -172,33 +188,7 @@ export const NavLinkStyled = styled.a`
 
     
 `
-export const NavMenuStyled = styled.a`
-    display: none;
-    justify-content: center;
-    align-items: center;
-    color: var(--Blanco);
-    font-size: 35px;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 20px;
 
-    &:hover {
-        transition: all ease 0.3s;
-        text-shadow: var(--GrisClaro) 2px 2px;
-        color: var(--CelesteClaro);
-        background: linear-gradient(
-    180deg,
-    var(--Blanco) 0%,
-    var(--GrisClaro) 50%,
-    var(--Blanco) 100%
-    );
-        font-weight: 600;
-    }
-
-    @media (max-width: 800px) {
-        display: flex
-    }
-`
 
 export const NavCartStyled = styled.a`
     display: flex;
@@ -221,5 +211,20 @@ export const NavCartStyled = styled.a`
     transition: all ease 0.3s;
     color: var(--CelesteClaro);
     font-weight: 600;
+    }
+`
+
+export const NavMenuStyled = styled(NavCartStyled)`
+    display: none;
+    @media (max-width: 800px) {
+        display: flex
+    }
+`
+
+export const NavUserStyled = styled(NavCartStyled)`
+
+
+    @media (max-width: 400px) {
+        display: none;
     }
 `

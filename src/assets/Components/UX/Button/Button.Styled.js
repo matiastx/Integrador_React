@@ -37,6 +37,26 @@ export const StyledButton = styled(motion.button)`
 		opacity: 0.5;
 	}
 `
+export const TrashStyledButton = styled(motion.button)`
+    background-color: var(--Rojo);
+    padding: 5px 8px 3px 8px;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 10px;
+    border: var(--RojoOscuro) solid 1px;
+    cursor: pointer;
+    color: var(--Blanco);
+
+    &:hover {
+        background-color: var(--RojoOscuro);
+    }
+
+    &:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+`
+
 export const StyledCryptoButton = styled(motion.button)`
     display: flex;
     justify-content: center;

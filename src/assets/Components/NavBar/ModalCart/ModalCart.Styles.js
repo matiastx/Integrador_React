@@ -1,11 +1,12 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const CartContainer = styled.div`
-    
+export const CartContainer = styled(motion.div)`
     position: fixed;
     top: 65px;
     right: 0;
     z-index: 99;
+
     padding: 50px 30px;
     background: linear-gradient(180deg, #043f6ee6 10%, #0b435de6 100%);
     border-left: 1px solid var(--AzulClaro);
@@ -14,17 +15,40 @@ export const CartContainer = styled.div`
     gap: 30px;
     height: calc(100vh - 65px);
     width: 450px;
-    overflow-y: scroll;
+    overflow-y: auto;
     box-shadow: 0px 3px 12px 0px #0a1d29c5;
     -webkit-box-shadow: 0px 3px 20px 0px #0a1d29c5;
-`
+`;
+
+export const CartHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & a {
+        background-color: var(--Rojo);
+        padding: 5px 8px 3px 8px;
+        font-size: 25px;
+        text-align: center;
+        border-radius: 10px;
+        border: var(--RojoOscuro) solid 1px;
+        cursor: pointer;
+        color: var(--Blanco);
+    }
+`;
 
 export const CardsContainer = styled.div`
     display: flex;
     align-items: center;    
     justify-content: center;
+    flex-direction: column;
     gap: 15px;
-`
+
+    & h4 {
+        font-size: 25px;
+        font-weight: 400;
+        color: var(--GrisClaro);
+    }
+`;
 export const CardContainer = styled.div`
     display: flex;
     align-items: center;    
@@ -53,7 +77,7 @@ export const CardContainer = styled.div`
     font-size: 35px;
     font-weight: 800;
     }
-`
+`;
 export const CardDescription = styled.div`
     display: flex;
     justify-content: center;
@@ -81,7 +105,7 @@ export const CardDescription = styled.div`
         background: linear-gradient(215deg, var(--Lila) 0%, var(--Azul) 50%);
         width: 95%;
     }
-`
+`;
 
 export const CardQuantity = styled.div`
     display: flex;
@@ -117,21 +141,21 @@ export const CardQuantity = styled.div`
         font-size: 18px;
         font-weight: 600;
     }
-`
+`;
 
 export const Separator = styled.span`
     height: 3px;
     background: linear-gradient(215deg, var(--bgprimario) 0%, var(--Blanco) 50%);
     width: 95%;
     width: 100%;
-`
+`;
 
 export const CartBuy = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-`
+`;
 
 export const CartBuyDesc = styled.div`
     display: flex;
@@ -140,6 +164,7 @@ export const CartBuyDesc = styled.div`
     padding: auto;
     width: 95%;
     justify-content: space-between;
+    margin-bottom: 20px;
     
     @media (max-width: 500px) {
             justify-content: center;
@@ -162,4 +187,4 @@ export const CartBuyDesc = styled.div`
         font-weight: 800
         
     }
-`
+`;

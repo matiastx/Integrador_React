@@ -1,21 +1,39 @@
 import React from 'react'
 import { CardContainer, CardDescription, CardQuantity } from './ModalCart.Styles'
+import { formatPrice, formatPriceUSD } from '../../../../Utils/FormatPrice'
+import { PrecioDolar } from '../../../../Utils/constantes'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart, removeFromCart } from '../../../../Redux/cart/cartSlice'
+import { toggleModalHidden, changeModal } from '../../../../Redux/modal/modalSlice'
 
-const ModalCartCard = () => {
+const ModalCartCard = ({id, title, denom, price, img, quantity}) => {
+    const modal = useSelector(state => state.modal.hiddenModal)
+
+    const dispatch = useDispatch()
+
+    const ShowModal = (title, color) => {
+        if(modal===true){
+            console.log(modal)
+            dispatch(toggleModalHidden())
+            dispatch(changeModal({title, color}))
+        }
+    }
+
     return (
-        <CardContainer>
-            <img src="https://res.cloudinary.com/dz4oxre7x/image/upload/v1691439169/btc_obimfc.png" alt="BTC" />
+        <CardContainer key={id}>
+
+            <img src={img} alt={denom} />
             <CardDescription>
-                <h3>Bitcoin</h3>
-                <p>Valor: U$D 23.998,29</p>
-                <p>Valor: $ 8.687.380,98</p>
+                <h3>{title}</h3>
+                <p>Valor: {formatPriceUSD(price)}</p>
+                <p>Valor: {formatPrice(price*PrecioDolar)}</p>
                 <span></span>
-                <p>SubTot: $ 21.718,45</p>
+                <p>SubTotal: {formatPrice((price*quantity)*PrecioDolar)}</p>
             </CardDescription>
             <CardQuantity>
-                <span>+</span>
-                <p>0.0025</p>
-                <span>-</span>
+                <span onClick={()=>dispatch(addToCart({id, title, denom, price, img, quantity})) && ShowModal('Producto Agregado', 'var(--Verde)')}>+</span>
+                <p>{quantity}</p>
+                <span onClick={()=>dispatch(removeFromCart({id, title, denom, price, img, quantity})) && ShowModal('Producto Eliminado', 'var(--Rojo)')}>-</span>
             </CardQuantity>
         </CardContainer>
     )
