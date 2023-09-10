@@ -3,13 +3,14 @@ import { CardsContainer, CartBuy, CartBuyDesc, CartContainer, CartHeader, Separa
 import ModalCartCard from './ModalCartCard';
 import { TbTrashXFilled } from 'react-icons/tb';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearCart } from '../../../../Redux/cart/cartSlice';
+import { clearCart, toggleCartHidden } from '../../../../Redux/cart/cartSlice';
 import { Button, TrashButton } from '../../..//Components/UX/Button/Button';
 import { PrecioDolar } from '../../../../Utils/constantes'
 import { formatPrice } from '../../../../Utils/FormatPrice'
 import { toggleModalHidden, changeModal } from '../../../../Redux/modal/modalSlice';
 
-const ModalCart = ({ hiddenCart, setHiddenCart }) => {
+
+const ModalCart = ({ hiddenCart }) => {
 
     const modal = useSelector(state => state.modal.hiddenModal)
     const {cartItems} = useSelector((state) => state.cart)
@@ -27,7 +28,7 @@ const ModalCart = ({ hiddenCart, setHiddenCart }) => {
     return (
         <>
         <AnimatePresence >
-            {!hiddenCart && (
+            {hiddenCart && (
                 <CartContainer
                     initial={{ translateX: 600 }}
                     animate={{ translateX: 0 }}
@@ -39,7 +40,7 @@ const ModalCart = ({ hiddenCart, setHiddenCart }) => {
                     <h1>Tu Compra</h1>
                     <TrashButton 
                         disabled={!cartItems.length} 
-                        onClick={()=>dispatch(clearCart()) && ShowModal('Carrito Vacio', 'var(--Rojo)')}
+                        onClick={()=> dispatch(toggleCartHidden()) && dispatch(clearCart()) && ShowModal('Carrito Vacio', 'var(--Rojo)')}
                     ><TbTrashXFilled/></TrashButton>
                 </CartHeader>
                 
@@ -60,7 +61,7 @@ const ModalCart = ({ hiddenCart, setHiddenCart }) => {
                 </CartBuyDesc>
                 <Button 
                     disabled={!cartItems.length}
-                    onClick={()=>dispatch(clearCart())}
+                    onClick={()=> dispatch(toggleCartHidden()) && dispatch(clearCart()) && ShowModal('Compra Realizada', 'var(--CelesteClaro)')}
                 >Comprar</Button>
             </CartBuy>
         </CartContainer>

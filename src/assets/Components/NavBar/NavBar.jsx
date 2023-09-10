@@ -23,14 +23,15 @@ import {
 import ModalCart from './ModalCart/ModalCart'
 import CartModals from '../Modals/CartModals'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleModalHidden, changeModal } from '../../../Redux/modal/modalSlice'
+import { toggleModalHidden } from '../../../Redux/modal/modalSlice'
+import { toggleCartHidden } from '../../../Redux/cart/cartSlice'
 
 
 const NavBar = () => {
-  const [ hiddenCart, setHiddenCart ] = useState(true) 
   const [ clikedMenu, setclikedMenu ] = useState(false) 
   const navigate = useNavigate();
   const cartModals = useSelector(state => state.modal.hiddenModal)
+  const cart = useSelector(state => state.cart)
   const dispatch = useDispatch()
   
   useEffect(() => {
@@ -40,9 +41,10 @@ const NavBar = () => {
       }
   }, [cartModals]);
 
+  console.log(cart.hidden);
   return (
     <NavBarContainer>
-      <ModalCart hiddenCart={hiddenCart} setHiddenCart={setHiddenCart} />
+      <ModalCart hiddenCart={cart.hidden}/>
       {!cartModals && (
         <CartModals hiddenCart={cartModals}/>
         )
@@ -73,7 +75,7 @@ const NavBar = () => {
       <MenuLinkA>Usuario</MenuLinkA>
       <li><NavUserStyled><BiSolidUser/></NavUserStyled></li>
       <li><NavMenuStyled onClick={() => setclikedMenu(!clikedMenu)}><HiViewGrid/></NavMenuStyled></li>
-      <li><NavCartStyled onClick={() => setHiddenCart(!hiddenCart)}><TiShoppingCart/></NavCartStyled></li>
+      <li><NavCartStyled onClick={() => dispatch(toggleCartHidden())}><TiShoppingCart/></NavCartStyled></li>
       </MenuLinksContainer>
     </NavBarContainer>
   )
