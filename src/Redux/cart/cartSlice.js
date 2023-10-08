@@ -3,7 +3,7 @@ import { addItemToCart, removeItemFromCart } from "./cartFunctions";
 
 const INITIAL_STATE = {
     cartItems: [],
-    hidden: true, 
+    hidden: false, 
 }
 
 const cartSlice = createSlice({

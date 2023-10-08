@@ -41,7 +41,7 @@ const NavBar = () => {
       }
   }, [cartModals]);
 
-  console.log(cart.hidden);
+  // console.log(cart.hidden);
   return (
     <NavBarContainer>
       <ModalCart hiddenCart={cart.hidden}/>
